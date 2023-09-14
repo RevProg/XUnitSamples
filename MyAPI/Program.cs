@@ -1,7 +1,3 @@
-using Microsoft.AspNetCore.Hosting;
-using System.Net;
-using System.Security.Cryptography.X509Certificates;
-
 namespace MyAPI;
 
 public class Program
@@ -12,9 +8,9 @@ public class Program
     }
 
     public static IHostBuilder CreateHostBuilder(string[] args) =>
-    Host.CreateDefaultBuilder(args)
-            .ConfigureWebHostDefaults(webBuilder =>
-            {
-                webBuilder.UseStartup<Startup>();
-            });
+        Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                });
 }

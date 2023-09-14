@@ -6,7 +6,8 @@ using MyAPIIntegrationTests.Overrides;
 
 namespace MyAPIIntegrationTests.Fixtures;
 
-public class CustomWebApplicationFactory<TProgram> 
+// https://xunit.net/docs/shared-context
+public class CustomWebApplicationFactory<TProgram>
     : WebApplicationFactory<TProgram> where TProgram : class
 {
     protected override void ConfigureWebHost(IWebHostBuilder builder)
@@ -16,7 +17,7 @@ public class CustomWebApplicationFactory<TProgram>
             //var descriptor = services.SingleOrDefault(o => o.ServiceType == typeof(IMyService));
             //if (descriptor != null)
             //    services.Remove(descriptor); 
-            
+
             services.AddSingleton<IMyService, MyTestService>();
         });
     }
